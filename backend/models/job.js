@@ -24,6 +24,7 @@ const jobSchema = new Schema(
 		jobType: {
 			type: String,
 			enum: ['remote', 'on-site', 'hybrid'],
+			default: 'on-site',
 		},
 		notes: { type: String },
 		interviewDate: { type: Date },
