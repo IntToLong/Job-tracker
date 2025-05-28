@@ -1,4 +1,4 @@
-import Job from '../models/job';
+import Job from '../models/job.model';
 
 export const getAllUserJobs = async (req, res, next) => {
 	try {
@@ -105,4 +105,4 @@ export const deleteJob = async (req, res, next) => {
 	}
 };
 
-export * as jobController from './jobController';
+export * as jobController from './job.controller';
