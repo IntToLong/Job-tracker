@@ -105,4 +105,4 @@ export const deleteJob = async (req, res, next) => {
 	}
 };
 
-export * as jobController from './job.controller';
+//export * as jobController from './job.controller';
