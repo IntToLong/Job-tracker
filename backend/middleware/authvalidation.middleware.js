@@ -7,7 +7,7 @@ export const registerValidation = (req, res, next) => {
 		password: 'required|min:6',
 	};
 
-	const validation = new Validator(req.body, rules);
+	const validation = new Validator(req.body, validateRule);
 
 	if (validation.fails()) {
 		return res.status(412).json({
@@ -26,7 +26,7 @@ export const loginValidation = (req, res, next) => {
 		password: 'required|min:6',
 	};
 
-	const validation = new Validator(req.body, rules);
+	const validation = new Validator(req.body, validateRule);
 
 	if (validation.fails()) {
 		return res.status(412).json({
@@ -38,5 +38,3 @@ export const loginValidation = (req, res, next) => {
 
 	next();
 };
-
-

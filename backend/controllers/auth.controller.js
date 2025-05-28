@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
-import User from '../models/user.modal';
+import User from '../models/user.modal.js';
 
 export const registerUser = async (req, res, next) => {
 	try {
@@ -14,7 +14,11 @@ export const registerUser = async (req, res, next) => {
 			});
 		}
 
-		const user = await User.create({ name, email, password });
+		const user = await User.create({
+			name: name,
+			email: email,
+			password: password,
+		});
 
 		const token = jwt.sign(
 			{ id: user._id, email: user.email },
@@ -53,7 +57,10 @@ export const login = async (req, res, next) => {
 			});
 		}
 
-		const isCorrectPassword = await bcrypt.compare(password, existingUser.password);
+		const isCorrectPassword = await bcrypt.compare(
+			password,
+			existingUser.password
+		);
 
 		if (!isCorrectPassword) {
 			return res.status(401).json({
