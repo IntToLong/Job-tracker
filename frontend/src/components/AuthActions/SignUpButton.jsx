@@ -4,7 +4,7 @@ export default function SignUpButton() {
 	return (
 		<Link
 			to='/register'
-			className='text-2xl bg-accent text-black py-2 px-3'>
+			className='bg-accent text-black py-2 px-4 rounded-md'>
 			Sign Up
 		</Link>
 	);

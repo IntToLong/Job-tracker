@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 @import 'tailwindcss';
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 
 html {
   scroll-behavior: smooth;
@@ -22,3 +20,6 @@ body {
 @utility flex-center {
 	@apply flex justify-center items-center;
 }
+
+
+@custom-variant dark (&:where(.dark, .dark *));

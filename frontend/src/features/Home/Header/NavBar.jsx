@@ -1,8 +1,8 @@
 import NavItem from './NavItem';
 export default function NavBar() {
 	return (
-		<nav className='text-surface'>
-			<ul className='flex-center space-x-3 text-2xl'>
+		<nav className='text-surface flex-1'>
+			<ul className='hidden md:flex-center flex-row gap-5 lg:gap-15 text-base xl:text-xl'>
 				<NavItem
 					title='Home'
 					href='#home'
@@ -19,4 +19,3 @@ export default function NavBar() {
 		</nav>
 	);
 }
-
