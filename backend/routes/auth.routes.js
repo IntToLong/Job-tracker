@@ -26,7 +26,7 @@ const router = Router();
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/UserRegistrationData'
+ *             $ref: '#/components/schemas/RegistrationData'
  *     responses:
  *       201:
  *         description: User registered and logged in

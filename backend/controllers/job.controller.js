@@ -19,7 +19,6 @@ export const addJob = async (req, res, next) => {
 	const notes = req.body.notes || '';
 	const interviewDate = req.body.interviewDate || '';
 	const createdBy = req.user.id;
-	console.log(createdBy);
 
 	try {
 		const job = await Job.create({
@@ -54,7 +53,6 @@ export const updateJob = async (req, res, next) => {
 	} = req.body;
 
 	try {
-		
 		const job = await Job.findById(id);
 
 		if (!job) {

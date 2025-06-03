@@ -39,9 +39,6 @@ export const registerUser = async (req, res, next) => {
 		});
 	} catch (error) {
 		next(error);
-		// res.status(500).json({
-		// 	error: error,
-		// });
 	}
 };
 
@@ -87,9 +84,5 @@ export const login = async (req, res, next) => {
 		});
 	} catch (error) {
 		next(error);
-		// return res.status(401).json({
-		// 			message: err.message,
-		// 			success: false,
-		// 		});
 	}
 };

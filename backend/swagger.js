@@ -22,7 +22,7 @@ const options = {
 				},
 			},
 			schemas: {
-				UserRegistrationData: {
+				RegistrationData: {
 					type: 'object',
 					required: ['name', 'email', 'password'],
 					properties: {
