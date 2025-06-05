@@ -1,5 +1,5 @@
-import Footer from '../features/home/Footer';
-import Header from '../features/home/Header/Header';
+import Footer from './Footer';
+import Header from './Header/Header';
 
 export default function HomePage() {
 	return (

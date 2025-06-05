@@ -22,7 +22,8 @@ body {
 	--color-surface: #f0f0f0;
 	--color-accent: #61DC00;
 
-	--background-image-auth: url('/src/assets/bg.png');
+	--background-image-auth: url('/src/assets/bgAuth.png');
+	--background-image-error: url('/src/assets/bgNotFound.png');
 }
 
 @utility flex-center {

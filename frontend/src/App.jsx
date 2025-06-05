@@ -1,14 +1,10 @@
-import Header from './features/home/Header/Header';
-import Footer from './features/home/Footer';
-import HomePage from './pages/HomePage';
-import SignUp from './features/auth/Signup';
-
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
 function App() {
 	return (
 		<>
-			{/* <HomePage /> */}
-			<SignUp />
+			<RouterProvider router={router} />
 		</>
 	);
 }
