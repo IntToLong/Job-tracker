@@ -1,3 +1,7 @@
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { LoginSchema } from './validation/schemas';
+
 import AuthCard from './AuthCard';
 import AuthForm from './AuthForm';
 import FloatingLabelInput from '../../components/form/FloatingLabelInput';
@@ -7,21 +11,41 @@ import SubmitButton from '../../components/form/SubmitButton';
 import AuthAside from './AuthAside';
 
 export default function Login() {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({ resolver: zodResolver(LoginSchema) });
+
+	const onSubmit = (data) => {
+		console.log(data);
+	};
+
 	return (
 		<AuthCard>
 			<div className='font-outfit bg-white w-full md:w-3/5 md:rounded-e-4xl flex'>
 				<div className='w-3/5 flex flex-col my-auto ml-20 lg:ml-30 gap-y-12'>
 					<h2 className='text-4xl font-bold'>Welcome back!</h2>
-					<AuthForm>
-						<FloatingLabelInput title='Email' type='email'/>
-						<FloatingLabelInput title='Password' type='password'/>
+					<AuthForm onSubmit={handleSubmit(onSubmit)}>
+						<FloatingLabelInput
+							title='Email'
+							type='email'
+							errors={errors.email}
+							{...register('email')}
+						/>
+						<FloatingLabelInput
+							title='Password'
+							type='password'
+							errors={errors.password}
+							{...register('password')}
+						/>
 						<SubmitButton>Login</SubmitButton>
 					</AuthForm>
 					<AuthDivider />
 					<AuthFooter
 						message='Don`t have an account?'
 						cta='Sign Up'
-                        link='/register'
+						link='/register'
 					/>
 				</div>
 			</div>

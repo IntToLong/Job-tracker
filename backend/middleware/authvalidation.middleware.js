@@ -2,7 +2,7 @@ import Validator from 'validatorjs';
 
 export const registerValidation = (req, res, next) => {
 	const validateRule = {
-		name: 'required|string|min:3',
+		name: 'required|string|min:2',
 		email: 'required|email',
 		password: 'required|min:6',
 	};
