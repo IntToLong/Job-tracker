@@ -1,5 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import axios, {isCancel, AxiosError} from 'axios';
+
 import { LoginSchema } from './validation/schemas';
 
 import AuthCard from './AuthCard';
@@ -19,6 +21,8 @@ export default function Login() {
 
 	const onSubmit = (data) => {
 		console.log(data);
+        axios.post('http://localhost:5000/api/auth/login', data);
+
 	};
 
 	return (
