@@ -43,7 +43,8 @@ export default function FloatingLabelInput({
 				<p
 					role='alert'
 					className='pl-3'>
-					<span className='text-red-600'>* </span>{errors.message}
+					<span className='text-red-600'>* </span>
+					{errors.message}
 				</p>
 			)}
 		</div>

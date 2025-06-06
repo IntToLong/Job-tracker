@@ -2,9 +2,22 @@
 
 @import 'tailwindcss';
 
+/*fix autofill background*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	border: 1px solid #676666;
+	transition: background-color 5000s ease-in-out 0s;
+}
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -14,11 +27,11 @@ body {
 
 @theme {
 	--font-space: 'Space Grotesk', sans-serif;
-	--font-outfit:  "Outfit", sans-serif;
-	--font-syne: "Syne", sans-serif;
+	--font-outfit: 'Outfit', sans-serif;
+	--font-syne: 'Syne', sans-serif;
 
 	--color-surface: #f0f0f0;
-	--color-accent: #61DC00;
+	--color-accent: #61dc00;
 
 	--background-image-auth: url('/src/assets/bgAuth.png');
 	--background-image-error: url('/src/assets/bgNotFound.png');
@@ -27,6 +40,5 @@ body {
 @utility flex-center {
 	@apply flex justify-center items-center;
 }
-
 
 @custom-variant dark (&:where(.dark, .dark *));
