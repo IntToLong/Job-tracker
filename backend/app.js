@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import auth from './routes/auth.routes.js';
 import jobs from './routes/job.routes.js';
 import swaggerUi from 'swagger-ui-express';
@@ -26,6 +27,7 @@ app.use(express.json());
 
 app.use('/api/auth', auth);
 app.use('/api', jobs);
+app.use(cookieParser())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(errorHandler);
 

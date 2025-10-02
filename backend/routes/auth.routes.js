@@ -1,9 +1,15 @@
 import { Router } from 'express';
-import { registerUser, login } from '../controllers/auth.controller.js';
+import {
+	registerUser,
+	login,
+	logout,
+	refreshToken,
+} from '../controllers/auth.controller.js';
 import {
 	registerValidation,
 	loginValidation,
-} from '../middleware/authvalidation.middleware.js';
+} from '../middleware/authValidation.middleware.js';
+import { verifyAccessToken } from '../middleware/verifyAccessToken.middleware.js';
 
 const router = Router();
 
@@ -13,7 +19,6 @@ const router = Router();
  *   name: Auth
  *   description: User authentication
  */
-
 
 /**
  * @swagger
@@ -54,8 +59,6 @@ const router = Router();
  *         description: Email already used
  */
 router.post('/register', registerValidation, registerUser);
-
-
 
 /**
  * @swagger
@@ -109,5 +112,47 @@ router.post('/register', registerValidation, registerUser);
  *         description: User is not registered
  */
 router.post('/login', loginValidation, login);
+
+/**
+ * @swagger
+ * /auth/logout:
+ *   post:
+ *     summary: Logout user
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: User logout successfully.
+ *       401:
+ *         description: No refresh token cookie found.
+ *       500:
+ *         description: Internal Server Error.
+ */
+router.post('/logout', verifyAccessToken, logout);
+
+/**
+ * @swagger
+ * /auth/refresh:
+ *   post:
+ *     summary: Refresh access token
+ *     tags: [Auth]
+*     responses:
+ *       200:
+ *         description: Successfully refreshed access token
+ *         content:
+ *           application/json:
+ *              schema:
+ *               type: object
+ *               properties:
+ *                 accessToken:
+ *                   type: string
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+ *       401:
+ *         description: Refresh token required
+ *       403:
+ *         description: Invalid refresh token
+ */
+router.post('/refresh', refreshToken);
 
 export default router;

@@ -1,4 +1,6 @@
 import Validator from 'validatorjs';
+import jwt from 'jsonwebtoken';
+
 
 export const registerValidation = (req, res, next) => {
 	const validateRule = {

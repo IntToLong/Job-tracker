@@ -1,22 +1,24 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 
-import { LoginSchema } from './validation/schemas';
+import { LoginSchema } from '../features/auth/validation/schemas';
 
-import AuthCard from './AuthCard';
-import AuthForm from './AuthForm';
-import FloatingLabelInput from '../../components/form/FloatingLabelInput';
-import AuthDivider from './AuthDivider';
-import AuthFooter from './AuthFooter';
-import SubmitButton from '../../components/form/SubmitButton';
-import AuthAside from './AuthAside';
+import AuthCard from '../features/auth/AuthCard';
+import AuthForm from '../features/auth/AuthForm';
+import FloatingLabelInput from '../components/form/FloatingLabelInput';
+import AuthDivider from '../features/auth/AuthDivider';
+import AuthFooter from '../features/auth/AuthFooter';
+import SubmitButton from '../components/form/SubmitButton';
+import AuthAside from '../features/auth/AuthAside';
 
 export default function Login() {
 	const [axiosError, setAxiosError] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
+	const navigate = useNavigate();
 	const {
 		register,
 		handleSubmit,
@@ -27,6 +29,10 @@ export default function Login() {
 		setIsLoading(true);
 		axios
 			.post('http://localhost:5000/api/auth/login', data)
+			.then(() => {
+				setAxiosError('');
+				navigate('/');
+			})
 			.catch((error) => {
 				setAxiosError(
 					error.status === 404

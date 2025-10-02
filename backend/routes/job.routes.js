@@ -5,7 +5,7 @@ import {
 	updateJob,
 	deleteJob,
 } from '../controllers/job.controller.js';
-import { verifyToken } from '../middleware/verifyToken.middleware.js';
+import { verifyAccessToken } from '../middleware/verifyAccessToken.middleware.js';
 
 const router = Router();
 
@@ -46,7 +46,7 @@ const router = Router();
  */
 
 //route to create a new job
-router.post('/jobs', verifyToken, addJob);
+router.post('/jobs', verifyAccessToken, addJob);
 
 /**
  * @swagger
@@ -70,7 +70,7 @@ router.post('/jobs', verifyToken, addJob);
  */
 
 //route to get all user jobs
-router.get('/jobs', verifyToken, getAllUserJobs);
+router.get('/jobs', verifyAccessToken, getAllUserJobs);
 
 /**
  * @swagger
@@ -109,7 +109,7 @@ router.get('/jobs', verifyToken, getAllUserJobs);
  */
 
 //route to update a specific job
-router.put('/jobs/:id', verifyToken, updateJob);
+router.put('/jobs/:id', verifyAccessToken, updateJob);
 
 /**
  * @swagger
@@ -136,6 +136,6 @@ router.put('/jobs/:id', verifyToken, updateJob);
  */
 
 //route to delete a specific job
-router.delete('/jobs/:id', verifyToken, deleteJob);
+router.delete('/jobs/:id', verifyAccessToken, deleteJob);
 
 export default router;
