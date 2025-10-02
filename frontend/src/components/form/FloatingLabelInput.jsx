@@ -34,7 +34,7 @@ export default function FloatingLabelInput({
 							src={inputType === 'password' ? closedEye : openedEye}
 							alt={inputType === 'password' ? 'closed eye' : 'opened eye'}
 							width='30'
-							className='absolute top-[9px] right-3'
+							className='absolute top-[9px] right-3 cursor-pointer'
 						/>
 					</button>
 				)}

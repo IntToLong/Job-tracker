@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { useAuth } from '../context/authContext';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 
@@ -23,12 +24,15 @@ export default function SignUp() {
 		handleSubmit,
 		formState: { errors },
 	} = useForm({ resolver: zodResolver(SignUpSchema) });
+	const { setToken, setUser } = useAuth();
 
 	const onSubmit = (data) => {
 		setIsLoading(true);
 		axios
 			.post('http://localhost:5000/api/auth/register', data)
-			.then(() => {
+			.then((res) => {
+				setToken(res.data.accessToken);
+				setUser(res.data.user);
 				setAxiosError('');
 				navigate('/');
 			})
