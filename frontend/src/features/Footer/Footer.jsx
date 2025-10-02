@@ -1,8 +1,7 @@
-
-import facebook from '../../assets/facebook.svg';
-import linkedin from '../../assets/linkedin.svg';
-import github from '../../assets/github-mark-white.svg';
-import x from '../../assets/x.svg';
+import FacebookIcon from '../../assets/facebook.svg?react';
+import LinkedinIcon from '../../assets/linkedin.svg?react';
+import GitHubIcon from '../../assets/github.svg?react';
+import XIcon from '../../assets/x.svg?react';
 
 export default function Footer() {
 	const year = new Date().getFullYear();
@@ -14,50 +13,30 @@ export default function Footer() {
 				<a href='#'>Terms of Service</a>
 			</section>
 			<section>
-				<ul className='flex-center gap-10'>
+				<ul className='flex-center gap-10 text-surface'>
 					<li>
 						<a
 							href='https://www.linkedin.com/in/nataliia-l-aa785127a/'
 							target='_blank'>
-							<img
-								src={linkedin}
-								width='20'
-								height='20'
-								alt={'linkedin icon'}
-							/>
+							<LinkedinIcon className='w-5 h-5 hover:text-accent' />
 						</a>
 					</li>
 					<li>
 						<a
 							href='https://github.com/IntToLong/Job-tracker'
 							target='_blank'>
-							<img
-								src={github}
-								width='20'
-								height='20'
-								alt={'github icon'}
-							/>
+							<GitHubIcon className='w-5 h-5 hover:text-accent' />
 						</a>
 					</li>
 					<li>
 						<a href='#'>
-							<img
-								src={facebook}
-								width='10'
-								max-height='20'
-								alt={'facebook icon'}
-							/>
+							<FacebookIcon className='w-5 h-5 hover:text-accent' />
 						</a>
 					</li>
 
 					<li>
 						<a href='#'>
-							<img
-								src={x}
-								width='19'
-								height='20'
-								alt={'x icon'}
-							/>
+							<XIcon className='w-5 h-5 hover:text-accent' />
 						</a>
 					</li>
 				</ul>

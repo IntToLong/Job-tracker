@@ -1,5 +1,5 @@
-import LoginButton from '../../../components/AuthActions/LoginButton';
-import SignUpButton from '../../../components/AuthActions/SignUpButton';
+import LoginButton from '../../components/AuthActions/LoginButton';
+import SignUpButton from '../../components/AuthActions/SignUpButton';
 import Logo from './Logo';
 import NavBar from './NavBar';
 
