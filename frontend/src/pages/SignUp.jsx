@@ -63,7 +63,7 @@ export default function SignUp() {
 						)}
 						<div className='w-full'>
 							<FloatingLabelInput
-								title='Name'
+								label='Name'
 								type='text'
 								placeholder='at least 2 characters'
 								errors={errors.name}
@@ -71,14 +71,14 @@ export default function SignUp() {
 							/>
 						</div>
 						<FloatingLabelInput
-							title='Email'
+							label='Email'
 							type='email'
 							placeholder='example@gmail.com'
 							errors={errors.email}
 							{...register('email')}
 						/>
 						<FloatingLabelInput
-							title='Password'
+							label='Password'
 							type='password'
 							placeholder='at least 6 characters'
 							showToggle

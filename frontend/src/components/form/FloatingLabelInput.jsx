@@ -1,29 +1,33 @@
-import { useState } from 'react';
+import { useState, useId } from 'react';
 
 import openedEye from '../../assets/eye-open.svg';
 import closedEye from '../../assets/eye-close.svg';
 
 export default function FloatingLabelInput({
-	title,
+	label,
 	type,
 	showToggle,
 	errors,
 	...props
 }) {
 	const [inputType, setInputType] = useState('password');
-
+	const inputId = useId();
+	
 	function handlePasswordVisibility() {
 		setInputType((prev) => (prev === 'password' ? 'text' : 'password'));
 	}
 	return (
 		<div className='w-full relative text-[#676666] focus-within:text-black'>
-			<label className='absolute -top-3 left-3 px-2 bg-white text-center z-10 '>
-				{title}
+			<label
+				className='absolute -top-3 left-3 px-2 bg-white text-center z-10 '
+				htmlFor={inputId}>
+				{label}
 			</label>
 			<div className='relative'>
 				<input
 					className='w-full border-[#676666] border-1 h-12 rounded-[10px] px-5'
 					type={type === 'password' ? inputType : type}
+					id={inputId}
 					{...props}
 				/>
 				{showToggle && (

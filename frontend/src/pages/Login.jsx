@@ -65,13 +65,13 @@ export default function Login() {
 							</p>
 						)}
 						<FloatingLabelInput
-							title='Email'
+							label='Email'
 							type='email'
 							errors={errors.email}
 							{...register('email')}
 						/>
 						<FloatingLabelInput
-							title='Password'
+							label='Password'
 							type='password'
 							errors={errors.password}
 							{...register('password')}
