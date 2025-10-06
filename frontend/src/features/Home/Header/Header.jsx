@@ -1,7 +1,6 @@
-import LoginButton from '../../components/AuthActions/LoginButton';
-import SignUpButton from '../../components/AuthActions/SignUpButton';
-import Logo from './Logo';
+import Logo from '../../../components/UI/Logo';
 import NavBar from './NavBar';
+import NavLink from '../../../components/UI/NavLink';
 
 export default function Header() {
 	return (
@@ -10,8 +9,16 @@ export default function Header() {
 				<Logo />
 				<NavBar />
 				<div className='flex justify-end items-center gap-8 flex-1 md:text-base xl:text-xl text-surface'>
-					<LoginButton />
-					<SignUpButton />
+					<NavLink
+						to='/login'
+						className='text-surface'>
+						Login
+					</NavLink>
+					<NavLink
+						to='/register'
+						className='bg-accent text-black py-2 px-4 rounded-md'>
+						Sign Up
+					</NavLink>
 				</div>
 			</header>
 		</>

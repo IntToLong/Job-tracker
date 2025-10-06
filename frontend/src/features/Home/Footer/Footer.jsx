@@ -1,7 +1,7 @@
-import FacebookIcon from '../../assets/facebook.svg?react';
-import LinkedinIcon from '../../assets/linkedin.svg?react';
-import GitHubIcon from '../../assets/github.svg?react';
-import XIcon from '../../assets/x.svg?react';
+import FacebookIcon from '../../../assets/facebook.svg?react';
+import LinkedinIcon from '../../../assets/linkedin.svg?react';
+import GitHubIcon from '../../../assets/github.svg?react';
+import XIcon from '../../../assets/x.svg?react';
 
 export default function Footer() {
 	const year = new Date().getFullYear();
